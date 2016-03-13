@@ -1,7 +1,7 @@
 
 var FB              = require('../fb'),
   //  Step            = require('step'),
-
+    request   = require('request'),
     config          = require('../config');
 
 FB.options({
@@ -28,18 +28,14 @@ exports.index = function(req, res) {
 exports.loginCallback = function (req, res) {
     
     setSessionVars = function (result) {      
-        req.session.access_token = result.access_token;
-        req.session.expires = result.expires || 0;
         FB.api('me', {
             fields: 'name',
-            access_token: req.session.access_token
+            access_token: result.access_token
         }, function (userInfo) {
             if (!userInfo || userInfo.error) {
                 return res.send(500, 'error');
             }
-            req.session.UserID = userInfo.id;
-            req.session.FullName = userInfo.name;
-            return res.redirect('/');
+            AbandonAndCreateSession(userInfo);
         });
     }
     
@@ -54,7 +50,29 @@ exports.loginCallback = function (req, res) {
             setSessionVars(response);
         });
     }
-    
+    AbandonAndCreateSession=function (userInfo) {
+        request({
+            url: 'http://localhost/Auth.JS.SetSession/aspx/CreateNewSession.aspx', //URL to hit
+            method: 'POST'
+        }, function (error, response, body) {
+            request({
+                url: 'http://localhost/Auth.JS.SetSession/aspx/CreateNewSession.aspx', //URL to hit
+                method: 'POST',
+                form: {
+                    UserID: userInfo.id,
+                    FullName: userInfo.name
+                }
+            }, function (error, response, body) {
+                if (error) {
+                    console.log(error);
+                } else {
+                    var setcookie = response.headers["set-cookie"];
+                    res.setHeader('Set-Cookie', setcookie);
+                    return res.redirect(config.appEntryUri);
+                }
+            });
+        });
+    }
     var code = req.query.code;
     if (req.query.error) {
         // user might have disallowed the app
