@@ -11,25 +11,16 @@ FB.options({
 });
 
 exports.index = function(req, res) {
-    var accessToken = req.session.access_token;
-    if(!accessToken) {
-        res.render('index', {
-            title: 'Express',
-            loginUrl: FB.getLoginUrl({ scope: 'user_about_me' })
-        });
-    } else {
-        res.render('menu', {
-            session_UserID: req.session.UserID,
-            session_FullName: req.session.FullName
-        });
-    }
+ /*   res.render('index', {
+        ReturnPort: process.env.PORT
+    }); */
+    res.redirect(config.appEntryUri+"?ReturnPort="+ process.env.PORT); //This is only for debugging in visual studio
 };
 
 exports.loginCallback = function (req, res) {
-    
     setSessionVars = function (result) {      
         FB.api('me', {
-            fields: 'name',
+            fields: 'name,email',
             access_token: result.access_token
         }, function (userInfo) {
             if (!userInfo || userInfo.error) {
@@ -52,15 +43,17 @@ exports.loginCallback = function (req, res) {
     }
     AbandonAndCreateSession=function (userInfo) {
         request({
-            url: 'http://localhost/Auth.JS.SetSession/aspx/CreateNewSession.aspx', //URL to hit
+            url: 'http://localhost/Auth.JS/aspx/CreateNewSession.aspx', //URL to hit
             method: 'POST'
         }, function (error, response, body) {
             request({
-                url: 'http://localhost/Auth.JS.SetSession/aspx/CreateNewSession.aspx', //URL to hit
+                url: 'http://localhost/Auth.JS/aspx/CreateNewSession.aspx', //URL to hit
                 method: 'POST',
                 form: {
                     UserID: userInfo.id,
-                    FullName: userInfo.name
+                    FullName: userInfo.name,
+                    email: userInfo.email,
+                    ReturnPort: process.env.PORT    //This is only for debugging in visual studio
                 }
             }, function (error, response, body) {
                 if (error) {
@@ -88,7 +81,3 @@ exports.loginCallback = function (req, res) {
     }
 }
 
-exports.logout = function (req, res) {
-    req.session = null; // clear session
-    res.redirect('/');
-};
