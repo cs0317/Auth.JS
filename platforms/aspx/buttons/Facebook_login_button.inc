@@ -12,9 +12,11 @@
       }
 
     </script>
+
+
     <form runat="server">
         <asp:ImageButton runat="server" OnClick="Facebook_login
-" ImageUrl="Facebook_login.png" width=100 height=40 />
+" ImageUrl="buttons/Facebook_login.png" width=100 height=40 oncontextmenu="copyToClipboard('\<!-- #include virtual =&#34;','\\buttons\\Facebook_login_button.inc\&#34; --\>');return false;"/>
+    </form>
 
-     </form>
 <!--  end of Facebook login button -->

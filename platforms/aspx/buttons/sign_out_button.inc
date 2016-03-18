@@ -14,8 +14,7 @@
   <form runat="server">
     <div align="right">
      <asp:ImageButton runat="server" OnClick="clearSession
-" ImageUrl="Sign_out.jpg" width=40 height=40 />
-
+" ImageUrl="buttons/Sign_out.jpg" width=40 height=40 oncontextmenu="copyToClipboard('\<!-- #include virtual =&#34;','\\buttons\\sign_out_button.inc\&#34; --\>');return false;"/>
     </div>
   </form>
 <!-- end of logout button -->
