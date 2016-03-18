@@ -16,7 +16,7 @@
 
     <form runat="server">
         <asp:ImageButton runat="server" OnClick="Facebook_login
-" ImageUrl="buttons/Facebook_login.png" width=100 height=40 oncontextmenu="copyToClipboard('\<!-- #include virtual =&#34;','\\buttons\\Facebook_login_button.inc\&#34; --\>');return false;"/>
+" ImageUrl="/Auth.JS/images/Facebook_login.png" width=100 height=40 oncontextmenu="copyToClipboard('\<!-- #include virtual =&#34;','\\buttons\\Facebook_login_button.inc\&#34; --\>');return false;"/>
     </form>
 
 <!--  end of Facebook login button -->
