@@ -57,7 +57,6 @@ div.tabs :target {
   };
 </script>
 
-
     <div class=tabs>
      <div id=tab1> <a href="#tab1">Non-popup buttons</a>
        <div>

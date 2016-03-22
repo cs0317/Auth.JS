@@ -14,7 +14,7 @@ exports.index = function(req, res) {
  /*   res.render('index', {
         ReturnPort: process.env.PORT
     }); */
-    res.redirect(config.appEntryUri+"?ReturnPort="+ process.env.PORT); //This is only for debugging in visual studio
+    res.redirect(config.buttonGeneratorPageUrl+"?ReturnPort="+ process.env.PORT); //This is only for debugging in visual studio
 };
 
 exports.loginCallback = function (req, res) {
@@ -61,7 +61,7 @@ exports.loginCallback = function (req, res) {
                 } else {
                     var setcookie = response.headers["set-cookie"];
                     res.setHeader('Set-Cookie', setcookie);
-                    return res.redirect(config.appEntryUri);
+                    return res.redirect(req.cookies["LoginPageUrl"]);
                 }
             });
         });

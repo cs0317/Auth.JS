@@ -7,7 +7,7 @@
     var ReturnPort=Session["ReturnPort"];
     Session.Abandon();
 
-    Response.Redirect("AllInOne.aspx?ReturnPort="+ReturnPort);
+    Response.Redirect(Request.RawUrl);
 
   }
   </script>

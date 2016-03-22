@@ -17,6 +17,6 @@ config.facebook = {
     redirectUri:    process.env.FACEBOOK_REDIRECTURI    ||  config.rootUrl + 'login/callback'
 };
 
-config.appEntryUri = "http://a.local.com/Auth.JS/aspx/AllInOne.aspx"
+config.buttonGeneratorPageUrl = "http://a.local.com/Auth.JS/aspx/AllInOne.aspx"
 
 module.exports = config;
