@@ -18,7 +18,7 @@
 <body>
 
 <%@ Page Language="C#" %>
-
+<script src="\Auth.JS\includes\utils.js"></script>
 <script>
   function copyToClipboard(str1,str2) {
     window.prompt("This is the ASP.NET code of the button.\nCopy to clipboard: Ctrl+C, Enter.\n", str1+"<% =System.Configuration.ConfigurationManager.AppSettings["AuthJS_AspxStub_AbsoluteWebRoot"]%>"+str2);
@@ -26,18 +26,8 @@
 </script>
 
 <div id="grad1">
-<%if (Session["UserID"]!=null) { %>
-
-    <!-- #include virtual = "/Auth.JS/aspx\buttons\sign_out_button.inc" -->
-<% } else { %>
-
-
-
-    <!-- #include virtual = "/Auth.JS/aspx\buttons\Facebook_login_button.inc" -->
-<% } %>
-
-
-
+<!-- #include virtual = "/Auth.JS/aspx\buttons\sign_out_button.inc" -->
+<!-- #include virtual = "/Auth.JS/aspx\buttons\Facebook_login_button.inc" -->
 </div>
 
 <h3>First, test this page:<br /></h3>
@@ -54,23 +44,17 @@
 <br />
 
 
-<h3>Next, follow the instruction to paste code into your app: <br /></h3>
+<h3>Next, follow the instruction to paste code into any ASPX page of your app: <br /></h3>
 
-1. The ASP.NET code of every button can be obtained by right-clicking the button, which you can paste anywhere you want in your ASP.NET app; <br />
-2. The code below is the logic to toggle between login and logout, which you can also paste into your app.
+1. Paste the following code in the beginning of the BODY section of your page;</br>
 <pre>
-&lt;%if (Session["UserID"]!=null) { %&gt;
-   //copy and paste the code of the logout button here.
-&lt;% } else { %&gt;
-   //copy and paste the code of a login button (e.g., Facebook login) here.
-   //copy and paste the code of another login button (e.g., Google login) here.
-   ...
-&lt;% } %&gt;
-
-
-
+&lt;%@ Page Language="C#" %&gt;
+&lt;script src="\Auth.JS\includes\utils.js"&gt;&lt;/script&gt;
 </pre>
-
-
+2. The code of every button can be obtained by right-clicking the button. For example, the following are the Facebook login button and a logout button. You can paste them anywhere you want in your page.<br />
+<pre>
+&lt;!-- #include virtual = "/Auth.JS/aspx\buttons\sign_out_button.inc" --&gt;
+&lt;!-- #include virtual = "/Auth.JS/aspx\buttons\Facebook_login_button.inc" --&gt;
+</pre>
 </body>
 </html>
