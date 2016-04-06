@@ -9,7 +9,7 @@
 
 		  document.cookie="LoginPageUrl=; expires=Thu, 01-Jan-70 00:00:01 GMT;";
 		  document.cookie="LoginPageUrl="+location+";path=/";
-          window.location="https://www.facebook.com/v2.0/dialog/oauth?response_type=code&scope=user_about_me%2Cemail&redirect_uri=http%3A%2F%2Fa.local.com%3A"+ReturnPort+"%2Flogin%2Fcallback&client_id=460545824136907";
+          window.location="https://www.facebook.com/v2.0/dialog/oauth?response_type=code&scope=user_about_me%2Cemail&redirect_uri=http%3A%2F%2Fa.local.com%3A"+ReturnPort+"%2Flogin%2FFacebook&client_id=460545824136907";
       }
     </script>
 
@@ -25,7 +25,7 @@
 		  HttpCookie cookie = new HttpCookie("LoginPageUrl");
 		  cookie.Value=Request.Url.ToString();
 		  Response.Cookies.Add(cookie);
-          Response.Redirect("https://www.facebook.com/v2.0/dialog/oauth?response_type=code&scope=user_about_me%2Cemail&redirect_uri=http%3A%2F%2Fa.local.com%3A"+ReturnPort+"%2Flogin%2Fcallback&client_id=460545824136907");
+          Response.Redirect("https://www.facebook.com/v2.0/dialog/oauth?response_type=code&scope=user_about_me%2Cemail&redirect_uri=http%3A%2F%2Fa.local.com%3A"+ReturnPort+"%2Flogin%2FFacebook&client_id=460545824136907");
 
       }
     </script>

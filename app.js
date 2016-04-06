@@ -6,10 +6,11 @@ var express = require('express'),
 
     config = require('./config'),
     home = require('./routes/home');
+    FacebookCallBack = require('./routes/FacebookCallback');
 
 var app = express();
 
-if(!config.facebook.appId || !config.facebook.appSecret) {
+if(!config.Facebook.appId || !config.Facebook.appSecret) {
     throw new Error('facebook appId and appSecret required in config.js');
 }
 
@@ -32,7 +33,7 @@ app.configure('development', function() {
 });
 
 app.get( '/',                home.index);
-app.get( '/login/callback',  home.loginCallback);
+app.get( '/login/Facebook', FacebookCallBack.loginCallback);
 
 http.createServer(app).listen(app.get('port'), function() {
     console.log("Express server listening on port " + app.get('port'));
