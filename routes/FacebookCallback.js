@@ -4,9 +4,9 @@ var FB              = require('../fb'),
     config          = require('../config');
 
 FB.options({
-    appId:          config.Facebook.appId,
-    appSecret:      config.Facebook.appSecret,
-    redirectUri:    config.Facebook.redirectUri
+    appId: config.Facebook.appId,
+    appSecret: config.Facebook.appSecret,
+    redirectUri: config.rootUrl + 'login/Facebook'
 });
 
 exports.loginCallback = function (req, res) {
@@ -44,8 +44,8 @@ exports.loginCallback = function (req, res) {
                 form: {
                     UserID: userInfo.id,
                     FullName: userInfo.name,
-                    email: userInfo.email,
-                    ReturnPort: process.env.PORT    //This is only for debugging in visual studio
+                    email: userInfo.email
+                    //,                    ReturnPort: process.env.PORT    //This is only for debugging in visual studio
                 }
             }, function (error, response, body) {
                 if (error) {

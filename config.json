@@ -7,7 +7,6 @@
   },
 
   "AuthJSSettings": {
-    "DeploymentPath": "C:\\inetpub\\wwwroot\\",
     "port": "3000"
   },
 

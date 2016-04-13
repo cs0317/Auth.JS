@@ -9,7 +9,6 @@
     background: -o-linear-gradient(right, blue, green); /* For Opera 11.1 to 12.0 */
     background: -moz-linear-gradient(right, blue, green); /* For Firefox 3.6 to 15 */
     background: linear-gradient(to right, blue , green); /* Standard syntax (must be last) */
-    width: 700px;
 }
 </style>
 </head>

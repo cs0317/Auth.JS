@@ -7,7 +7,4 @@ if (typeof process.env.PORT == 'undefined')
 config.rootUrl = "http://"+config.WebAppSettings.hostname+':'+ process.env.PORT + '/';
 config.buttonGeneratorPageUrl = "http://" + config.WebAppSettings.hostname + ':' + config.WebAppSettings.port + '/' + "Auth.JS/aspx/AllInOne.aspx";
 
-config.Facebook.redirectUri=  config.rootUrl + 'login/Facebook'
-
-
 module.exports = config;
