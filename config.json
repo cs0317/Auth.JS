@@ -4,7 +4,10 @@
     "hostname": "a.local.com",
     "scheme": "http",
     "port": "80",
-    "platform":  "aspx"
+    "platform": {
+      "name": "aspx",
+      "fileExtension": "aspx"
+    }
   },
 
   "AuthJSSettings": {

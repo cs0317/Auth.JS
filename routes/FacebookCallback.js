@@ -35,11 +35,11 @@ exports.loginCallback = function (req, res) {
     }
     AbandonAndCreateSession=function (userInfo) {
         request({
-            url: 'http://localhost/Auth.JS/'+config.WebAppSettings.platform+'/CreateNewSession.aspx', //URL to hit
+            url: 'http://localhost/Auth.JS/'+config.WebAppSettings.platform.name+'/CreateNewSession.'+config.WebAppSettings.platform.fileExtension, 
             method: 'POST'
         }, function (error, response, body) {
             request({
-                url: 'http://localhost/Auth.JS/'+config.WebAppSettings.platform+'/CreateNewSession.aspx', //URL to hit
+                url: 'http://localhost/Auth.JS/' + config.WebAppSettings.platform.name + '/CreateNewSession.' + config.WebAppSettings.platform.fileExtension, 
                 method: 'POST',
                 form: {
                     UserID: userInfo.id,
