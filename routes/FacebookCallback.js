@@ -35,17 +35,16 @@ exports.loginCallback = function (req, res) {
     }
     AbandonAndCreateSession=function (userInfo) {
         request({
-            url: 'http://localhost/Auth.JS/aspx/CreateNewSession.aspx', //URL to hit
+            url: 'http://localhost/Auth.JS/'+config.WebAppSettings.platform+'/CreateNewSession.aspx', //URL to hit
             method: 'POST'
         }, function (error, response, body) {
             request({
-                url: 'http://localhost/Auth.JS/aspx/CreateNewSession.aspx', //URL to hit
+                url: 'http://localhost/Auth.JS/'+config.WebAppSettings.platform+'/CreateNewSession.aspx', //URL to hit
                 method: 'POST',
                 form: {
                     UserID: userInfo.id,
                     FullName: userInfo.name,
                     email: userInfo.email
-                    //,                    ReturnPort: process.env.PORT    //This is only for debugging in visual studio
                 }
             }, function (error, response, body) {
                 if (error) {
