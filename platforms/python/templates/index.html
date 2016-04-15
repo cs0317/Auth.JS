@@ -1,0 +1,13 @@
+<!doctype html>
+<html>
+<body>
+  {% if not session.UserID%}
+    Please <a href="{{ url }}">log in</a>
+  {% else %}
+    Hello {{ session.FullName }} 
+    <br>
+    <a href="{{ url_for('logout') }}">log out</a>
+  {% endif %}
+  </div>
+</body>
+</html>

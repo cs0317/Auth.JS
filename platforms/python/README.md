@@ -1,5 +1,18 @@
 Python platform for Auth.JS
 
+Video: http://cl.ly/2J0w1Z080U2T
+
+It works as follows: 
+
+A user visits http://a.local.com
+The user clicks the login button
+The user is redirected to the Facebook page to authorize the app
+The user authorizes the app
+Facebook call nodejs server on localhost, port 3000
+The nodejs server authorizes the app, then send an empty POST request to http://a.local.com
+The nodejs server sends the second POST request to http://a.local.com containing user information
+a.local.com can correctly receive user information from the POST request
+
 # Run the python webserver on port 80
 
     python index.py
