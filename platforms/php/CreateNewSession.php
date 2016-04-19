@@ -1,59 +1,42 @@
 <?php
-$FB_OAUTH_URL = "/";
 
 session_start();
 
-require 'vendor/autoload.php';
+// Save your variable
+Flight::set('AUTHJS_LOCAL_SERVER', "a.local.com");
+
+$AUTHJS_LOCAL_SERVER = "a.local.com";
+$AUTHJS_LOCAL_PORT = 3000;
+$AUTHJS_FB_APP_ID = 460545824136907;
+$AUTHJS_FB_APP_SCOPE = "user_about_me,email";
+
+$format = "https://www.facebook.com/v2.0/dialog/oauth?response_type=code&scope=%s&redirect_uri=http://%s:%d/login/Facebook&client_id=%d";
+$FB_OAUTH_URL = sprintf($format, $AUTHJS_FB_APP_SCOPE, $AUTHJS_LOCAL_SERVER, $AUTHJS_LOCAL_PORT, $AUTHJS_FB_APP_ID);
+
+Flight::set('FB_OAUTH_URL', $FB_OAUTH_URL);
 
 Flight::route('GET /', function(){
-    // if request.remote_addr!= "127.0.0.1":
-    // abort(403)
-    //     if "UserID" in request.form and len(request.form["UserID"]) == 0:
-    // session.clear()
-    //                           resp = make_response(render_template("index.html"))
-    //                           resp.set_cookie('LoginPageUrl', '/')
-    //                           return resp
-    // var_dump($_GET);
-    // E.g. find if the user is logged in
-    if($_SESSION['userid']) {
-    // Logged in
-    echo("logged in");
+    if ($_SERVER['REMOTE_ADDR'] != "127.0.0.1" and $_SERVER['REMOTE_ADDR'] != "::1"){
+        echo "local login only";
+        return;
     }
-    else {
-    // Not logged in
-    echo("not logged in");
-    }
-
+    Flight::render('index.php', array('UserID' => $_SESSION['UserID']));
 });
 
 Flight::route('POST /Auth.JS/php/CreateNewSession.php', function(){
-// $_SESSION["zim"] = "An invader from another planet.";
-
-    // if "UserID" in request.form and len(request.form["UserID"]) > 0:
-    // session["UserID"] = request.form["UserID"]
-    //                       session["FullName"] = request.form["FullName"]
-    //                       session["email"] = request.form["email"]
-    //                       return ("OK")
+    $UserID = Flight::request()->data->UserID;
+    if (strlen($UserID) > 0){
+        session_destroy();
+        $_SESSION['UserID'] = $UserID;
+    }
 });
 
 Flight::route('GET /login', function(){
-    // Flight::redirect($FB_OAUTH_URL);
-    // Use session variables
-    $_SESSION['userid'] = "pcao";
-    echo("hello login");
-    Flight::redirect("/");
+    Flight::redirect(Flight::get("FB_OAUTH_URL"));
 });
-
 
 Flight::route('GET /logout', function(){
-    // session.clear()
-    // return redirect("/")
     session_destroy();
-    Flight::redirect('/');
-});
-
-
-Flight::route('GET /Auth.JS/aspx/AllInOne.aspx', function(){
     Flight::redirect('/');
 });
 
