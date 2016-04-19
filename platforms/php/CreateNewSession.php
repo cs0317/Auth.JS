@@ -2,9 +2,6 @@
 
 session_start();
 
-// Save your variable
-Flight::set('AUTHJS_LOCAL_SERVER', "a.local.com");
-
 $AUTHJS_LOCAL_SERVER = "a.local.com";
 $AUTHJS_LOCAL_PORT = 3000;
 $AUTHJS_FB_APP_ID = 460545824136907;
@@ -17,7 +14,8 @@ Flight::set('FB_OAUTH_URL', $FB_OAUTH_URL);
 
 Flight::route('GET /', function(){
     if ($_SERVER['REMOTE_ADDR'] != "127.0.0.1" and $_SERVER['REMOTE_ADDR'] != "::1"){
-        echo "local login only";
+        // TODO: return 403 error
+        echo "local access only";
         return;
     }
     Flight::render('index.php', array('UserID' => $_SESSION['UserID']));
