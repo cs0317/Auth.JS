@@ -18,7 +18,11 @@ Flight::route('GET /', function(){
         echo "local access only";
         return;
     }
-    Flight::render('index.php', array('UserID' => $_SESSION['UserID']));
+    Flight::render('index.php', array(
+        'UserID' => $_SESSION['UserID'],
+        'FullName' => $_SESSION['FullName'],
+        'email' => $_SESSION['email']
+    ));
 });
 
 Flight::route('POST /Auth.JS/php/CreateNewSession.php', function(){
