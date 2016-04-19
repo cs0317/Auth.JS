@@ -73,11 +73,9 @@
              <!-- List group -->
              <ul class="list-group">
              <li class="list-group-item">session.UserID: <?= $UserID ?> </li>
-                                                                    <li class="list-group-item">session.FullName: {{  session.FullName }}</li>
-                                                                                                                             <li class="list-group-item">session.email: {{  session.email }}</li>
-                                                                                                                                                                                   </ul>
+             <li class="list-group-item">session.FullName: <?= $FullName ?></li>
+             <li class="list-group-item">session.email: <?= $email ?></li>                                                                                                                                                                                   </ul>
                                                                                                                                                                                    </div>
-
                                                                                                                                                                                    <p>To use Auth.JS with your python web app, paste these code into your web template</p>
                                                                                                                                                                                    <script src="https://gist.github.com/pmcao/868fc03c70ea2f27021bcda02c10a3da.js"></script>
             <?php endif; ?>

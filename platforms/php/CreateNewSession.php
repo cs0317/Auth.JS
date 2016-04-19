@@ -28,6 +28,8 @@ Flight::route('POST /Auth.JS/php/CreateNewSession.php', function(){
     if (strlen($UserID) > 0){
         session_destroy();
         $_SESSION['UserID'] = $UserID;
+        $_SESSION['FullName'] = $FullName;
+        $_SESSION['email'] = $email;
     }
 });
 
