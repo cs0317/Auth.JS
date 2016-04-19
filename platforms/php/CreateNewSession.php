@@ -29,6 +29,7 @@ $f3->route('GET /', function($f3){
             'FullName' => $_SESSION['FullName'],
             'email' => $_SESSION['email']
         ));
+    setcookie("LoginPageUrl", "/");
     echo View::instance()->render('views/index.php');
 });
 
