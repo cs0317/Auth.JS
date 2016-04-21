@@ -30,7 +30,7 @@ $f3->route('GET /', function($f3){
             'email' => $_SESSION['email']
         ));
 
-    echo View::instance()->render('views/index.php');
+    echo View::instance()->render('views/index.php.template');
 });
 
 $f3->route('POST /Auth.JS/php/CreateNewSession.php', function(){
