@@ -5,7 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-        <title>Auth.JS Python Platform</title>
+        <title>Auth.JS PHP Platform</title>
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
@@ -31,7 +31,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#">Auth.JS Python Platform</a>
+                    <a class="navbar-brand" href="#">Auth.JS PHP Platform</a>
                 </div>
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
@@ -49,7 +49,7 @@
              log in</a>
             <?php else: ?>
              <a href="/logout">
-             Hello <?= $UserID ?> , log out</a>
+             Hello <?= $FullName?> , log out</a>
             <?php endif; ?>
 
                         </li>
@@ -66,7 +66,7 @@
             <?php if ($UserID == ""): ?>
              <h2>Please <a href="/login">log in</a> first! </h2>
             <?php else: ?>
-             <h2> Hello               <?= $UserID ?> </h2>
+             <h2> Hello               <?= $FullName ?> </h2>
              <div class="panel panel-default">
              <!-- Default panel contents -->
              <div class="panel-heading">User information</div>

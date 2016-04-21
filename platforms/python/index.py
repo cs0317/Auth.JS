@@ -9,8 +9,9 @@ app = Flask(__name__)
 def index():
     if request.remote_addr != "127.0.0.1":
         abort(403)
-    if "UserID" in request.form and len(request.form["UserID"]) == 0:
-        session.clear()
+    # # TODO: Do we really need this? GET requests do not have form data
+    # if "UserID" in request.form and len(request.form["UserID"]) == 0:
+    #     session.clear()
     resp = make_response(render_template("index.html"))
     resp.set_cookie('LoginPageUrl', '/')
     return resp
@@ -18,6 +19,7 @@ def index():
 @app.route('/Auth.JS/python/CreateNewSession.py', methods = ['POST'])
 def create_new_session():
     if "UserID" in request.form and len(request.form["UserID"]) > 0:
+        session.clear()
         session["UserID"] = request.form["UserID"]
         session["FullName"] = request.form["FullName"]
         session["email"] = request.form["email"]
