@@ -6,6 +6,30 @@ IIS (Windows) configuration. Follow this instruction: http://fatfreeframework.co
 
 If you are using Apache (Linux). Follow this instruction: http://fatfreeframework.com/routing-engine#SampleApacheConfiguration
 
+In config.json
+
+    "WebAppSettings": {
+      "hostname": "a.local.com",
+      "scheme": "http",
+      "port": "80",
+      "platform": {
+        "name": "php",
+        "fileExtension": "php"
+      }
+    },
+    
+    
+In config.js
+
+Change this line
+
+    config.buttonGeneratorPageUrl = "http://" + config.WebAppSettings.hostname + ':' + config.WebAppSettings.port + '/' + "Auth.JS/aspx/AllInOne.aspx";
+
+to this line
+
+    config.buttonGeneratorPageUrl = "http://" + config.WebAppSettings.hostname + ':' + config.WebAppSettings.port + '/';
+
+
 # Install 
 
 Step 1.
@@ -27,3 +51,5 @@ Run `node app`
 Step 4. 
 
 Visit `a.local.com`
+
+Click login
