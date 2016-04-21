@@ -1,9 +1,9 @@
 Python platform for Auth.JS
 
+# Demo
 Video: http://cl.ly/1K012I253O19
 
-It works as follows: 
-
+# Workflow
 A user visits http://a.local.com
 The user clicks the login button
 The user is redirected to the Facebook page to authorize the app
