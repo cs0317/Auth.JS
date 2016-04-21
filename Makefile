@@ -8,7 +8,7 @@ runc:
 		-docker rm -f $(CONTAINER_NAME)
 		-docker kill $(CONTAINER_NAME)
 		# docker run -p 3000:3000 --name $(CONTAINER_NAME) --link authjs-php:authjs-platform -d $(CONTAINER_FULLNAME)
-		docker run -p 80:80 --name $(CONTAINER_NAME) -d $(CONTAINER_FULLNAME)
+		docker run -p 3000:3000 -p 80:80 --name $(CONTAINER_NAME) -d $(CONTAINER_FULLNAME)
 
 shell:
 		-docker rm -f $(CONTAINER_NAME)

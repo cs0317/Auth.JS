@@ -34,11 +34,10 @@ $f3->route('GET /', function($f3){
 });
 
 $f3->route('POST /Auth.JS/php/CreateNewSession.php', function(){
-    $UserID = $_POST['UserID'];
-    if (strlen($UserID) > 0){
+    if (strlen($_POST['UserID']) > 0){
         // TODO: Temporary disable session destroy because of a bug in PHP
         // session_destroy();
-        $_SESSION['UserID'] = $UserID;
+        $_SESSION['UserID'] = $_POST['UserID'];
         $_SESSION['FullName'] = $_POST['FullName'];
         $_SESSION['email'] = $_POST['email'];
     }
