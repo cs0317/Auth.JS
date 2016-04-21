@@ -17,6 +17,7 @@ $FB_OAUTH_URL = sprintf($format, $AUTHJS_FB_APP_SCOPE, $AUTHJS_LOCAL_SERVER, $AU
 $f3->set('FB_OAUTH_URL', $FB_OAUTH_URL);
 
 $f3->route('GET /', function($f3){
+    // TODO: Temporary disable this check because of a bug in PHP
     // if ($_SERVER['REMOTE_ADDR'] != "127.0.0.1" and $_SERVER['REMOTE_ADDR'] != "::1"){
     //     // TODO: return 403 error
     //     echo "local access only";
@@ -35,6 +36,7 @@ $f3->route('GET /', function($f3){
 $f3->route('POST /Auth.JS/php/CreateNewSession.php', function(){
     $UserID = $_POST['UserID'];
     if (strlen($UserID) > 0){
+        // TODO: Temporary disable session destroy because of a bug in PHP
         // session_destroy();
         $_SESSION['UserID'] = $UserID;
         $_SESSION['FullName'] = $_POST['FullName'];
