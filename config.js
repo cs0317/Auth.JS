@@ -1,5 +1,5 @@
 var fs = require('fs');
-var config = JSON.parse(fs.readFileSync('.\\config.json', 'utf8'));
+var config = JSON.parse(fs.readFileSync('./config.json', 'utf8'));
 
 if (typeof process.env.PORT == 'undefined') 
     process.env.PORT = config.AuthJSSettings.port;

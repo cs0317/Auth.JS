@@ -13,7 +13,7 @@
       }
     </script>
 
-    <img OnClick="Facebook_login();" src="/Auth.JS/images/Facebook_login.png" width=100 height=40 oncontextmenu="copyToClipboard('\<!-- #include virtual =&#34;','\\buttons\\Facebook_login_button.inc\&#34; --\>');return false;"/>
+    <img OnClick="Facebook_login();" src="/Auth.JS/images/Facebook_login.png" width=100 height=40 oncontextmenu="copyToClipboard('\<!-- #include virtual =&#34;','/Auth.JS/aspx\\buttons\\Facebook_login_button.inc\&#34; --\>');return false;"/>
 <% } %>
 
 <%--

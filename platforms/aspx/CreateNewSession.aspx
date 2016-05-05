@@ -9,15 +9,12 @@ protected void Page_Load(object sender, EventArgs e)  {
  } else {
    if (String.IsNullOrEmpty(Request.Form["UserID"])) {
       Session.Abandon();
-
       Response.Cookies.Add(new HttpCookie("ASP.NET_SessionId", ""));
-
    } else {
     Session["UserID"]=Request.Form["UserID"];
     Session["Fullname"]=Request.Form["Fullname"];
     Session["email"]=Request.Form["email"];
-    Session["ReturnPort"]=Request.Form["ReturnPort"]; //This is only for debugging in visual studio
-   }    
+	}
  }
 }
 </script>

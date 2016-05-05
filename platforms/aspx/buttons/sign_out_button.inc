@@ -9,7 +9,7 @@
   </script>
   <form runat="server">
      <asp:ImageButton runat="server" OnClick="clearSession
-" ImageUrl="/Auth.JS/images/Sign_out.jpg" width=40 height=40 oncontextmenu="copyToClipboard('\<!-- #include virtual =&#34;','\\buttons\\sign_out_button.inc\&#34; --\>');return false;"/>
+" ImageUrl="/Auth.JS/images/Sign_out.jpg" width=40 height=40 oncontextmenu="copyToClipboard('\<!-- #include virtual =&#34;','/Auth.JS/aspx\\buttons\\sign_out_button.inc\&#34; --\>');return false;"/>
   </form>
 <% } %>
 <!-- end of logout button -->
