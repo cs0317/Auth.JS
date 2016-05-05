@@ -4,14 +4,13 @@
         "noImplicitAny": true,
         "removeComments": true,
         "preserveConstEnums": true,
-        "sourceMap": true
+        "outFile": "tsc.js"
     },
     "files": [
-        "main.ts"
+        "main.ts",
+        "CST.ts"
     ],
-    "compileOnSave": true,
     "compilerOptions": {
         "noImplicitAny" : true
     }
-
 }
